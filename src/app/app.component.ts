@@ -52,10 +52,10 @@ export class AppComponent implements OnInit {
 
     private listenForStoreChanges() {
       this.isLoggedIn$ = this.store
-        .pipe(map(store => !!store['auth'].user));
+        .pipe(select(store => !!store['auth'].user));
 
       this.isLoggedOut$ = this.store
-        .pipe(map(store => !store['auth'].user))
+        .pipe(select(store => !store['auth'].user))
     }
 
     logout() {
