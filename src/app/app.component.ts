@@ -6,7 +6,7 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 import { AuthState } from './auth/reducers';
 import { AuthActions } from './auth/action-types';
 import { AppState } from './reducers';
-import { isLoggedIn } from './auth/auth.selectors';
+import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
 
 @Component({
   selector: 'app-root',
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
         .pipe(select(isLoggedIn));
 
       this.isLoggedOut$ = this.store
-        .pipe(select(store => !store['auth'].user))
+        .pipe(select(isLoggedOut))
     }
 
     logout() {
