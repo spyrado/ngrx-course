@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.form.getRawValue() as { email: string, password: string };
     this.auth.login(email, password)
       .pipe(tap((user) => {
-        console.log(user);
         this.store.dispatch(AuthActions.login({ user }))
         this.router.navigateByUrl('/courses')
       }))
