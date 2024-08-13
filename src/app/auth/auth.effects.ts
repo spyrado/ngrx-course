@@ -6,7 +6,6 @@ export class AuthEffects {
 
   constructor(private actions$: Actions) {
     this.actions$.subscribe(action => {
-      console.log(action);
       if(action.type === '[Login Page] User Login') {
         localStorage.setItem('user', JSON.stringify(action['user']))
       }
